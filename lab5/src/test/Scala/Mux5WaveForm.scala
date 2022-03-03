@@ -1,0 +1,3 @@
+class Mux5WaveForm {
+
+}
