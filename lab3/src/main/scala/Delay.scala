@@ -1,4 +1,5 @@
 import chisel3._
+import chisel3.util._
 
 class Delay extends Module {
   val io = IO(new Bundle {
@@ -9,9 +10,8 @@ class Delay extends Module {
   val res = Wire(UInt())
 
   // ***** your code starts here *****
-
-  // below is dummy code to make this example compile
-  res := io.din
+  def delay(x: UInt) = RegNext(x)
+  res := delay(delay(io.din))
 
   // ***** your code ends here *****
 

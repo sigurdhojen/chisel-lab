@@ -17,8 +17,11 @@ class Mux5Test extends AnyFlatSpec with ChiselScalatestTester {
 
             val res = (n >> sel) & 0x1
 
-            // println(n + " " + sel + " " + res)
+            if (dut.io.y.peek.equals(res.U)) {
+              println(n + " and "+ sel)
+            }
             dut.io.y.expect(res.U)
+
         }
       }
     }
